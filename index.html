@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>慧养生 - AI养生助手</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">慧养生</h1>
+                <nav class="nav">
+                    <a href="#symptom-consult" class="nav-link active">症状咨询</a>
+                    <a href="#health-knowledge" class="nav-link">养生知识</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- 症状咨询模块 -->
+        <section id="symptom-consult" class="section symptom-consult">
+            <div class="container">
+                <h2 class="section-title">AI症状咨询</h2>
+                <div class="symptom-form">
+                    <div class="form-group">
+                        <label for="symptom-input" class="form-label">请描述您的不适症状</label>
+                        <textarea id="symptom-input" class="form-control" placeholder="例如：最近总是感觉疲劳，眼睛干涩，睡眠不好..." rows="4"></textarea>
+                    </div>
+                    <div class="form-tags">
+                        <span class="tag">肝火旺</span>
+                        <span class="tag">睡眠不好</span>
+                        <span class="tag">眼睛干涩</span>
+                        <span class="tag">疲劳乏力</span>
+                        <span class="tag">脾胃虚弱</span>
+                    </div>
+                    <button id="consult-btn" class="btn btn-primary">获取分析建议</button>
+                </div>
+                <div id="consult-result" class="consult-result hidden">
+                    <h3>分析结果</h3>
+                    <div class="result-content">
+                        <div class="reason"></div>
+                        <div class="suggestion"></div>
+                        <div class="warning hidden">
+                            <div class="warning-icon"></div>
+                            <div class="warning-text">请立即就医</div>
+                        </div>
+                        <div class="food-recommendation hidden">
+                            <h4>推荐食材</h4>
+                            <div class="food-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 养生知识科普模块 -->
+        <section id="health-knowledge" class="section health-knowledge">
+            <div class="container">
+                <h2 class="section-title">养生知识科普</h2>
+                <div class="knowledge-articles">
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=traditional%20chinese%20medicine%20health%20knowledge%20article%20illustration&image_size=landscape_16_9" alt="中医养生基础">
+                        <h3>中医养生基础：四季养生法</h3>
+                        <div class="article-content">
+                            <p class="summary">根据中医理论，四季养生应顺应自然规律，春季养肝，夏季养心，秋季养肺，冬季养肾。春季宜多吃绿色蔬菜，夏季宜清淡饮食，秋季宜滋阴润肺，冬季宜温补养肾。</p>
+                            <div class="full-content hidden">
+                                <p>中医养生强调顺应自然，与天地同步。四季养生是中医养生学的重要组成部分，根据不同季节的气候特点和人体生理变化，采取相应的养生措施。</p>
+                                <p><strong>春季养生：</strong>春季是万物复苏的季节，对应肝脏。此时应注重养肝，保持情绪舒畅，避免肝气郁结。饮食上宜多吃绿色蔬菜，如菠菜、芹菜、韭菜等，这些食物具有疏肝理气的作用。春季还应适当增加户外活动，如散步、踏青等，以顺应阳气升发的趋势。</p>
+                                <p><strong>夏季养生：</strong>夏季是阳气最旺盛的季节，对应心脏。此时应注重养心，保持心情平静，避免心火过旺。饮食上宜清淡，多吃清热解暑的食物，如西瓜、绿豆、丝瓜等。夏季出汗较多，应注意补充水分和电解质，避免中暑。</p>
+                                <p><strong>秋季养生：</strong>秋季是收获的季节，对应肺脏。此时应注重养肺，保持呼吸道湿润，避免肺燥。饮食上宜多吃滋阴润肺的食物，如梨、银耳、百合、蜂蜜等。秋季气候干燥，应注意多喝水，保持室内空气湿润。</p>
+                                <p><strong>冬季养生：</strong>冬季是阳气潜藏的季节，对应肾脏。此时应注重养肾，保持温暖，避免肾阳不足。饮食上宜温补，多吃温热的食物，如羊肉、桂圆、红枣、生姜等。冬季应适当减少户外活动，保证充足的睡眠，以顺应阳气潜藏的趋势。</p>
+                                <p>四季养生的核心是顺应自然规律，根据不同季节的特点调整生活方式和饮食习惯，以达到防病强身、延年益寿的目的。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=healthy%20diet%20nutrition%20illustration&image_size=landscape_16_9" alt="饮食养生">
+                        <h3>药食同源：日常饮食中的养生智慧</h3>
+                        <div class="article-content">
+                            <p class="summary">药食同源是中医的重要理论，许多日常食材同时具有药用价值，合理搭配可以起到调理身体的作用。例如，生姜可以温中散寒，大枣可以补中益气，枸杞可以滋补肝肾等。</p>
+                            <div class="full-content hidden">
+                                <p>药食同源是中医的重要理论，指许多食物同时具有药用价值，既能作为饮食食用，又能作为药物治疗疾病。这种理论起源于古代中国，是中医养生学的重要组成部分。</p>
+                                <p><strong>生姜：</strong>生姜性温，味辛，具有温中散寒、止呕化痰的作用。适用于脾胃虚寒、恶心呕吐、风寒感冒等症状。生姜可以作为调料使用，也可以切片泡水饮用，或者与红糖一起煮水喝，具有很好的养生效果。</p>
+                                <p><strong>大枣：</strong>大枣性温，味甘，具有补中益气、养血安神的作用。适用于脾胃虚弱、气血不足、失眠多梦等症状。大枣可以直接食用，也可以与其他食材一起煮粥、煲汤，或者泡水饮用。</p>
+                                <p><strong>枸杞：</strong>枸杞性平，味甘，具有滋补肝肾、益精明目的作用。适用于肝肾阴虚、视力下降、腰膝酸软等症状。枸杞可以直接食用，也可以泡水饮用，或者与其他食材一起煮粥、煲汤。</p>
+                                <p><strong>山药：</strong>山药性平，味甘，具有健脾益胃、滋肾益精的作用。适用于脾胃虚弱、肾虚遗精、带下等症状。山药可以作为蔬菜食用，也可以与其他食材一起煮粥、煲汤。</p>
+                                <p><strong>莲子：</strong>莲子性平，味甘涩，具有补脾止泻、益肾涩精、养心安神的作用。适用于脾虚泄泻、肾虚遗精、心悸失眠等症状。莲子可以与其他食材一起煮粥、煲汤，或者制成莲子羹食用。</p>
+                                <p>药食同源的食材种类繁多，合理搭配使用可以起到调理身体、预防疾病的作用。但需要注意的是，不同体质的人应选择适合自己的食材，避免食用与体质不符的食物，以免引起不适。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sleep%20health%20wellness%20illustration&image_size=landscape_16_9" alt="睡眠养生">
+                        <h3>睡眠养生：如何拥有高质量睡眠</h3>
+                        <div class="article-content">
+                            <p class="summary">良好的睡眠是健康的基础，中医认为睡眠与人体气血运行密切相关，调整睡眠习惯可以改善整体健康状况。建议保持规律作息，睡前避免使用电子设备，创造安静舒适的睡眠环境。</p>
+                            <div class="full-content hidden">
+                                <p>睡眠是人体恢复体力和精力的重要方式，良好的睡眠对于维持身体健康至关重要。中医认为，睡眠与人体气血运行密切相关，睡眠不足或睡眠质量差会影响脏腑功能，导致疾病的发生。</p>
+                                <p><strong>睡眠的重要性：</strong>睡眠是人体自我修复的过程，在睡眠中，人体会进行新陈代谢、细胞修复、免疫功能调节等重要生理活动。长期睡眠不足或睡眠质量差会导致免疫力下降、记忆力减退、情绪波动等问题，甚至增加患慢性疾病的风险。</p>
+                                <p><strong>如何改善睡眠质量：</strong></p>
+                                <ul>
+                                    <li><strong>保持规律作息：</strong>尽量每天在固定的时间上床睡觉和起床，包括周末。这样可以帮助身体建立良好的生物钟，提高睡眠质量。</li>
+                                    <li><strong>创造安静舒适的睡眠环境：</strong>保持卧室安静、黑暗和凉爽，使用舒适的床垫和枕头。避免在卧室中使用电子设备，如手机、电脑、电视等，这些设备发出的蓝光会抑制褪黑素的分泌，影响睡眠。</li>
+                                    <li><strong>睡前放松：</strong>睡前可以进行一些放松活动，如泡热水澡、听轻音乐、阅读等，避免进行剧烈运动或刺激性活动，如看恐怖片、玩游戏等。</li>
+                                    <li><strong>注意饮食：</strong>避免在睡前吃太多或喝太多，尤其是辛辣、油腻、刺激性的食物和含咖啡因的饮料。可以在睡前喝一杯温牛奶，牛奶中含有色氨酸，有助于促进睡眠。</li>
+                                    <li><strong>适当运动：</strong>适当的运动可以促进睡眠，但应避免在睡前3小时内进行剧烈运动，以免身体过于兴奋，影响睡眠。</li>
+                                </ul>
+                                <p><strong>中医睡眠养生方法：</strong>中医认为，不同体质的人睡眠问题的原因不同，应采取相应的调理方法。例如，心脾两虚的人可以食用一些具有养心安神作用的食物，如莲子、百合、桂圆等；肝郁气滞的人可以食用一些具有疏肝解郁作用的食物，如玫瑰花、合欢花、佛手等；阴虚火旺的人可以食用一些具有滋阴降火作用的食物，如银耳、枸杞、桑葚等。</p>
+                                <p>良好的睡眠是健康的基础，通过调整生活方式和饮食习惯，可以改善睡眠质量，提高身体健康水平。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=exercise%20health%20wellness%20illustration&image_size=landscape_16_9" alt="运动养生">
+                        <h3>运动养生：适度运动的益处</h3>
+                        <div class="article-content">
+                            <p class="summary">适度的运动可以促进气血运行，增强体质，提高免疫力。中医认为，不同体质的人应选择适合自己的运动方式，如散步、太极、瑜伽等。运动时应注意适量，避免过度劳累。</p>
+                            <div class="full-content hidden">
+                                <p>运动是保持身体健康的重要方式，适度的运动可以促进气血运行，增强体质，提高免疫力，预防疾病。中医认为，运动养生是养生学的重要组成部分，通过适当的运动可以调整阴阳平衡，促进脏腑功能，达到防病强身的目的。</p>
+                                <p><strong>运动的益处：</strong></p>
+                                <ul>
+                                    <li><strong>促进气血运行：</strong>运动可以促进血液循环，增加氧气和营养物质的供应，促进新陈代谢，排出体内废物。</li>
+                                    <li><strong>增强体质：</strong>运动可以增强肌肉力量，提高关节灵活性，增强骨骼密度，预防骨质疏松。</li>
+                                    <li><strong>提高免疫力：</strong>运动可以促进免疫细胞的生成和活性，提高机体的免疫功能，预防感染和疾病。</li>
+                                    <li><strong>调节情绪：</strong>运动可以促进内啡肽的分泌，缓解压力和焦虑，改善情绪，提高心理健康水平。</li>
+                                    <li><strong>改善睡眠：</strong>适度的运动可以促进睡眠，提高睡眠质量，缓解失眠等睡眠问题。</li>
+                                </ul>
+                                <p><strong>适合不同体质的运动方式：</strong></p>
+                                <ul>
+                                    <li><strong>平和体质：</strong>适合各种运动方式，如散步、跑步、游泳、球类运动等。</li>
+                                    <li><strong>气虚体质：</strong>适合温和的运动方式，如散步、太极、瑜伽等，避免剧烈运动。</li>
+                                    <li><strong>阳虚体质：</strong>适合温暖的运动方式，如散步、慢跑、太极等，避免在寒冷的环境中运动。</li>
+                                    <li><strong>阴虚体质：</strong>适合清凉的运动方式，如游泳、瑜伽、太极等，避免在炎热的环境中运动。</li>
+                                    <li><strong>痰湿体质：</strong>适合有氧运动，如散步、慢跑、游泳、球类运动等，以促进痰湿排出。</li>
+                                    <li><strong>湿热体质：</strong>适合清凉的运动方式，如游泳、瑜伽、太极等，避免在炎热潮湿的环境中运动。</li>
+                                    <li><strong>血瘀体质：</strong>适合促进血液循环的运动方式，如散步、慢跑、太极、舞蹈等。</li>
+                                    <li><strong>气郁体质：</strong>适合调节情绪的运动方式，如散步、慢跑、太极、舞蹈等，避免单独运动。</li>
+                                    <li><strong>特禀体质：</strong>适合温和的运动方式，如散步、太极、瑜伽等，避免接触过敏原。</li>
+                                </ul>
+                                <p><strong>运动注意事项：</strong></p>
+                                <ul>
+                                    <li><strong>适量运动：</strong>运动应循序渐进，避免过度劳累，根据自己的身体状况选择合适的运动强度和时间。</li>
+                                    <li><strong>热身和放松：</strong>运动前应进行热身，运动后应进行放松，以避免运动损伤。</li>
+                                    <li><strong>注意环境：</strong>运动应选择合适的环境，避免在极端天气或污染严重的环境中运动。</li>
+                                    <li><strong>穿着合适：</strong>运动应穿着合适的服装和鞋子，以保证运动的安全性和舒适性。</li>
+                                    <li><strong>坚持运动：</strong>运动应长期坚持，才能取得良好的养生效果。</li>
+                                </ul>
+                                <p>适度的运动是保持身体健康的重要方式，通过选择适合自己体质的运动方式，坚持适量运动，可以提高身体健康水平，预防疾病，延年益寿。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=emotion%20health%20wellness%20illustration&image_size=landscape_16_9" alt="情志养生">
+                        <h3>情志养生：保持良好的心态</h3>
+                        <div class="article-content">
+                            <p class="summary">中医认为，情志不畅会影响脏腑功能，导致疾病的发生。保持良好的心态，避免过度的情绪波动，对于养生保健至关重要。可以通过冥想、听音乐、旅游等方式调节情绪。</p>
+                            <div class="full-content hidden">
+                                <p>情志是指人的情绪和情感，包括喜、怒、忧、思、悲、恐、惊七种情绪，中医称之为"七情"。中医认为，情志不畅会影响脏腑功能，导致疾病的发生，因此，情志养生是养生学的重要组成部分。</p>
+                                <p><strong>情志与健康的关系：</strong>中医认为，情志与脏腑功能密切相关，不同的情志会影响不同的脏腑。例如，喜伤心，怒伤肝，忧思伤脾，悲伤肺，惊恐伤肾。长期的情志不畅会导致脏腑功能失调，气血运行紊乱，从而引发各种疾病。</p>
+                                <p><strong>常见的情志问题：</strong></p>
+                                <ul>
+                                    <li><strong>焦虑：</strong>表现为紧张、不安、担忧等情绪，长期焦虑会导致肝气郁结，影响肝脏功能。</li>
+                                    <li><strong>抑郁：</strong>表现为情绪低落、兴趣减退、快感缺失等，长期抑郁会导致心脾两虚，影响心脏和脾脏功能。</li>
+                                    <li><strong>愤怒：</strong>表现为情绪激动、易怒等，长期愤怒会导致肝气上逆，影响肝脏功能。</li>
+                                    <li><strong>恐惧：</strong>表现为害怕、恐惧等，长期恐惧会导致肾气不固，影响肾脏功能。</li>
+                                </ul>
+                                <p><strong>情志调节方法：</strong></p>
+                                <ul>
+                                    <li><strong>冥想：</strong>冥想是一种有效的情志调节方法，可以通过专注于呼吸或特定的对象，达到放松身心、调节情绪的目的。</li>
+                                    <li><strong>听音乐：</strong>音乐具有调节情绪的作用，不同的音乐可以产生不同的情绪反应。例如，轻柔的音乐可以缓解焦虑和抑郁，欢快的音乐可以提升情绪。</li>
+                                    <li><strong>旅游：</strong>旅游可以改变环境，接触不同的人和事物，从而缓解压力，调节情绪。</li>
+                                    <li><strong>运动：</strong>运动可以促进内啡肽的分泌，缓解压力和焦虑，改善情绪。</li>
+                                    <li><strong>社交：</strong>与朋友和家人交流可以获得情感支持，缓解压力，调节情绪。</li>
+                                    <li><strong>兴趣爱好：</strong>培养兴趣爱好可以转移注意力，缓解压力，调节情绪。</li>
+                                    <li><strong>中医调理：</strong>中医认为，不同的情志问题可以通过饮食、中药、针灸等方法进行调理。例如，肝气郁结的人可以食用一些具有疏肝解郁作用的食物，如玫瑰花、合欢花、佛手等；心脾两虚的人可以食用一些具有养心安神作用的食物，如莲子、百合、桂圆等。</li>
+                                </ul>
+                                <p><strong>保持良好心态的方法：</strong></p>
+                                <ul>
+                                    <li><strong>积极乐观：</strong>保持积极乐观的心态，看到事物的积极一面，避免消极思维。</li>
+                                    <li><strong>宽容豁达：</strong>学会宽容他人，豁达面对生活中的挫折和困难。</li>
+                                    <li><strong>知足常乐：</strong>学会知足，珍惜现有的生活，避免过度追求物质和名利。</li>
+                                    <li><strong>活在当下：</strong>专注于当下的生活，避免过度担忧未来或回忆过去。</li>
+                                    <li><strong>自我肯定：</strong>学会自我肯定，认可自己的价值和成就，避免自我否定和自我怀疑。</li>
+                                </ul>
+                                <p>情志养生是养生学的重要组成部分，通过调节情绪，保持良好的心态，可以预防疾病，提高身体健康水平。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="article-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=herbal%20tea%20health%20wellness%20illustration&image_size=landscape_16_9" alt="茶饮养生">
+                        <h3>茶饮养生：药茶的保健作用</h3>
+                        <div class="article-content">
+                            <p class="summary">药茶是中医养生的重要组成部分，不同的茶饮具有不同的保健作用。例如，菊花茶可以清肝明目，玫瑰花茶可以疏肝解郁，决明子茶可以润肠通便。选择适合自己体质的药茶，可以起到调理身体的作用。</p>
+                            <div class="full-content hidden">
+                                <p>药茶是中医养生的重要组成部分，是将中药与茶叶配伍，或单用一味中药（或数味中药）代茶冲泡、煎煮，饮用其液汁，以达到防治疾病、保健养生的目的。药茶具有制作简便、服用方便、疗效显著、无毒副作用等特点，深受人们的喜爱。</p>
+                                <p><strong>常见的药茶种类：</strong></p>
+                                <ul>
+                                    <li><strong>菊花茶：</strong>由菊花冲泡而成，具有清肝明目、清热解毒的作用，适合肝火旺、眼睛干涩、咽喉肿痛的人群。</li>
+                                    <li><strong>玫瑰花茶：</strong>由玫瑰花冲泡而成，具有疏肝解郁、活血化瘀的作用，适合肝郁气滞、情绪不畅、月经不调的人群。</li>
+                                    <li><strong>决明子茶：</strong>由决明子冲泡而成，具有清肝明目、润肠通便的作用，适合肝火旺、便秘、眼睛干涩的人群。</li>
+                                    <li><strong>枸杞茶：</strong>由枸杞冲泡而成，具有滋补肝肾、益精明目的作用，适合肝肾阴虚、视力下降、腰膝酸软的人群。</li>
+                                    <li><strong>红枣茶：</strong>由红枣冲泡而成，具有补中益气、养血安神的作用，适合气血不足、失眠多梦、面色苍白的人群。</li>
+                                    <li><strong>生姜茶：</strong>由生姜冲泡而成，具有温中散寒、止呕化痰的作用，适合脾胃虚寒、恶心呕吐、风寒感冒的人群。</li>
+                                    <li><strong>薄荷茶：</strong>由薄荷冲泡而成，具有疏散风热、清利头目的作用，适合风热感冒、头痛、咽喉肿痛的人群。</li>
+                                    <li><strong>蒲公英茶：</strong>由蒲公英冲泡而成，具有清热解毒、消肿散结的作用，适合热毒内盛、痈肿疮毒、咽喉肿痛的人群。</li>
+                                </ul>
+                                <p><strong>药茶的制作方法：</strong></p>
+                                <ul>
+                                    <li><strong>冲泡法：</strong>将中药放入茶杯中，用沸水冲泡，加盖闷10-15分钟后饮用。适合质地较轻、有效成分易溶于水的中药，如菊花、玫瑰花、枸杞等。</li>
+                                    <li><strong>煎煮法：</strong>将中药放入锅中，加入适量清水，煎煮10-15分钟后饮用。适合质地较重、有效成分不易溶于水的中药，如决明子、生姜等。</li>
+                                    <li><strong>浸泡法：</strong>将中药放入保温杯中，加入沸水，加盖闷30分钟后饮用。适合需要长时间浸泡才能析出有效成分的中药，如人参、西洋参等。</li>
+                                </ul>
+                                <p><strong>药茶的饮用注意事项：</strong></p>
+                                <ul>
+                                    <li><strong>选择适合自己体质的药茶：</strong>不同的药茶具有不同的功效，应根据自己的体质选择适合的药茶。例如，体质偏寒的人应选择温热性的药茶，如生姜茶、红枣茶等；体质偏热的人应选择寒凉性的药茶，如菊花茶、薄荷茶等。</li>
+                                    <li><strong>适量饮用：</strong>药茶虽然具有保健作用，但也应适量饮用，避免过量饮用引起不适。</li>
+                                    <li><strong>注意饮用时间：</strong>不同的药茶饮用时间不同。例如，安神类的药茶应在睡前饮用，清热解毒类的药茶应在白天饮用。</li>
+                                    <li><strong>注意药物配伍：</strong>有些中药之间存在配伍禁忌，应避免同时使用。例如，人参不宜与藜芦同用，甘草不宜与海藻、大戟、甘遂、芫花同用。</li>
+                                    <li><strong>注意特殊人群：</strong>孕妇、哺乳期妇女、儿童、老年人等特殊人群应在医生的指导下饮用药茶。</li>
+                                </ul>
+                                <p>药茶是中医养生的重要组成部分，通过选择适合自己体质的药茶，适量饮用，可以起到调理身体、预防疾病的作用。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="disclaimer">
+                    <h4>免责声明</h4>
+                    <p>本建议仅供参考，不作为医疗诊断依据。如有严重不适，请立即就医。</p>
+                </div>
+                <div class="footer-info">
+                    <p>© 2026 慧养生 - AI养生助手</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
